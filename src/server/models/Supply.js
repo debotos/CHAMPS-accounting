@@ -44,8 +44,6 @@ const Schema = new mongoose.Schema(
 		code: {
 			// Economic Code
 			type: String,
-			required: true,
-			minlength: 2,
 			maxlength: 100,
 			trim: true
 		},

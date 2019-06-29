@@ -148,7 +148,8 @@ export class Consultant extends Component {
 											'Payment Type',
 											'Amount',
 											'IT',
-											'VAT'
+											'VAT',
+											'Total',
 										])
 									}
 								/>

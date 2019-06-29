@@ -148,7 +148,8 @@ export class Salaries extends Component {
 											'Payment Type',
 											'Amount',
 											'IT',
-											'VAT'
+											'VAT',
+											'Total',
 										])
 									}
 								/>

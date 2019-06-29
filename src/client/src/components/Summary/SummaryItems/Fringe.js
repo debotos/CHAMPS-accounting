@@ -149,7 +149,8 @@ export class Fringes extends Component {
 											'Payment Type',
 											'Amount',
 											'IT',
-											'VAT'
+											'VAT',
+											'Total',
 										])
 									}
 								/>

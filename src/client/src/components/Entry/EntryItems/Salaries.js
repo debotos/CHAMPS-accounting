@@ -34,15 +34,6 @@ const SelectTypeOptions = [
 	</Option>
 ]
 
-const SelectCodeOptions = [
-	<Option key="1" value={`#0000`}>
-		#0000
-	</Option>,
-	<Option key="2" value={`#1111`}>
-		#1111
-	</Option>
-]
-
 export class Salaries extends Component {
 	componentDidMount() {
 		this.getSalaries(this.props.budgetYear)
@@ -107,7 +98,7 @@ export class Salaries extends Component {
 					it: values.it,
 					vat: values.vat,
 					type: values.type,
-					code: values.code
+					code: values.code || ''
 				}
 				console.log('Salaries form data formated: ', data)
 				axios
@@ -227,13 +218,7 @@ export class Salaries extends Component {
 					</Form.Item>
 
 					<Form.Item validateStatus={codeError ? 'error' : ''} help={codeError || ''}>
-						{getFieldDecorator('code', {
-							rules: [{ required: true, message: 'Please provide economic code!' }]
-						})(
-							<Select showSearch style={{ minWidth: 150 }} placeholder="Economic Code">
-								{SelectCodeOptions}
-							</Select>
-						)}
+						{getFieldDecorator('code', {})(<Input placeholder="Economic code" />)}
 					</Form.Item>
 
 					<Form.Item>
@@ -340,13 +325,8 @@ class EditableCell extends React.Component {
 				})(<Select style={{ minWidth: 100 }}>{SelectTypeOptions}</Select>)
 
 			case 'code':
-				return getFieldDecorator('code', {
-					initialValue: this.getInputValue(record, field),
-					rules: [{ required: true, message: 'Please provide economic code!' }]
-				})(
-					<Select showSearch style={{ minWidth: 100 }} placeholder="Economic Code">
-						{SelectCodeOptions}
-					</Select>
+				return getFieldDecorator('code', { initialValue: this.getInputValue(record, field) })(
+					<Input placeholder="Economic code" />
 				)
 
 			default:
@@ -577,7 +557,7 @@ class EditableTable extends React.Component {
 					it: row.it,
 					vat: row.vat,
 					type: row.type,
-					code: row.code
+					code: row.code || ''
 				}
 				console.log('Salaries updated form data formated: ', data)
 				/* Instant UI update */

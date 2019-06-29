@@ -145,9 +145,10 @@ export class Supplies extends Component {
 											'Date',
 											'Economic Code',
 											'Payment Type',
-											'Total Cost',
+											'Amount',
 											'IT',
-											'VAT'
+											'VAT',
+											'Total',
 										])
 									}
 								/>
@@ -243,7 +244,7 @@ class TableView extends React.Component {
 				sorter: (a, b) => a.date - b.date
 			},
 			{
-				title: 'Total Cost',
+				title: 'Amount',
 				dataIndex: 'amount',
 				width: '10%',
 				// defaultSortOrder: 'descend',

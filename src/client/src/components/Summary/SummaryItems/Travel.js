@@ -148,9 +148,10 @@ export class Travel extends Component {
 											'Payment Type',
 											'D.A',
 											'T.A',
-											'Total',
+											'Amount',
 											'IT',
-											'VAT'
+											'VAT',
+											'Total'
 										])
 									}
 								/>
@@ -268,7 +269,7 @@ class TableView extends React.Component {
 				...this.getColumnSearchProps('designation')
 			},
 			{
-				title: 'Total',
+				title: 'Amount',
 				dataIndex: 'amount',
 				width: '10%',
 				// defaultSortOrder: 'descend',
