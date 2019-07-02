@@ -199,14 +199,14 @@ export class Travels extends Component {
 
 					<Form.Item validateStatus={nameError ? 'error' : ''} help={nameError || ''}>
 						{getFieldDecorator('name', {
-							rules: [{ required: true, message: 'Please provide Name!' }]
-						})(<Input placeholder="Name" />)}
+							rules: [{ required: true, message: 'Please provide Name/Monitoring Site!' }]
+						})(<Input placeholder="Name/Monitoring Site" />)}
 					</Form.Item>
 
 					<Form.Item validateStatus={designationError ? 'error' : ''} help={designationError || ''}>
 						{getFieldDecorator('designation', {
-							rules: [{ required: true, message: 'Provide Designation!' }]
-						})(<Input placeholder="Designation" />)}
+							rules: [{ required: true, message: 'Provide Designation/Team!' }]
+						})(<Input placeholder="Designation/Team" />)}
 					</Form.Item>
 
 					<Form.Item
@@ -453,14 +453,14 @@ class EditableTable extends React.Component {
 				sorter: (a, b) => a.ta - b.ta
 			},
 			{
-				title: 'Name',
+				title: 'Name/Monitoring Site',
 				dataIndex: 'name',
 				width: '10%',
 				editable: true,
 				...this.getColumnSearchProps('name')
 			},
 			{
-				title: 'Designation',
+				title: 'Designation/Team',
 				dataIndex: 'designation',
 				width: '10%',
 				editable: true,

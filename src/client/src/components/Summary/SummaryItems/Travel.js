@@ -94,6 +94,8 @@ export class Travel extends Component {
 		let endDate
 		data = data.map(x => ({
 			...x,
+			it: x.it ? x.it : 0,
+			vat: x.vat ? x.vat : 0,
 			total: (x.amount ? x.amount : 0) + (x.it ? x.it : 0) + (x.vat ? x.vat : 0)
 		}))
 		data.forEach(x => (totalMoney = totalMoney + x.total))
@@ -258,13 +260,13 @@ class TableView extends React.Component {
 				sorter: (a, b) => a.ta - b.ta
 			},
 			{
-				title: 'Name',
+				title: 'Name/Monitoring Site',
 				dataIndex: 'name',
 				width: '10%',
 				...this.getColumnSearchProps('name')
 			},
 			{
-				title: 'Designation',
+				title: 'Designation/Team',
 				dataIndex: 'designation',
 				width: '10%',
 				...this.getColumnSearchProps('designation')
