@@ -11,7 +11,15 @@ router.get('/', auth, async (req, res) => {
 	try {
 		const bank = await Bank.find(req.query)
 		return res.send(
-			bank[0] || { consultant: 0, fringe: 0, other: 0, salary: 0, supply: 0, travel: 0 }
+			bank[0] || {
+				consultant: 0,
+				fringe: 0,
+				other: 0,
+				salary: 0,
+				supply: 0,
+				equipment: 0,
+				travel: 0
+			}
 		)
 	} catch (error) {
 		console.log(error)

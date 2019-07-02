@@ -8,6 +8,7 @@ const others = require('../routes/others')
 const budget = require('../routes/budget')
 const bank = require('../routes/bank')
 const users = require('../routes/users')
+const common = require('../routes/common')
 const error = require('../middleware/error')
 
 const version = process.env.API_VERSION || 'v1'
@@ -23,5 +24,6 @@ module.exports = function(app) {
 	app.use(`/api/${version}/budget`, budget)
 	app.use(`/api/${version}/bank`, bank)
 	app.use(`/api/${version}/users`, users)
+	app.use(`/api/${version}/common`, common)
 	app.use(error)
 }
