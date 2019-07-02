@@ -89,18 +89,19 @@ export class Supplies extends Component {
 		const { loading, budget, showDetails, value, bank } = this.state
 		let { data } = this.state
 		let totalMoney = 0
-		data.forEach(x => (totalMoney = totalMoney + x.amount))
+
 		let startDate
 		let endDate
+		data = data.map(x => ({
+			...x,
+			total: (x.amount ? x.amount : 0) + (x.it ? x.it : 0) + (x.vat ? x.vat : 0)
+		}))
+		data.forEach(x => (totalMoney = totalMoney + x.total))
 		if (value.length === 2) {
 			startDate = value[0].valueOf()
 			endDate = value[1].valueOf()
 			data = data.filter(x => x.date >= startDate && x.date <= endDate)
 		}
-		data = data.map(x => ({
-			...x,
-			total: (x.amount ? x.amount : 0) + (x.it ? x.it : 0) + (x.vat ? x.vat : 0)
-		}))
 
 		if (loading) return <Spin size="large" />
 		return (
@@ -148,7 +149,7 @@ export class Supplies extends Component {
 											'Amount',
 											'IT',
 											'VAT',
-											'Total',
+											'Total'
 										])
 									}
 								/>
